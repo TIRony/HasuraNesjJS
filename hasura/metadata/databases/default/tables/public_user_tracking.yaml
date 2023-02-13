@@ -1,0 +1,14 @@
+table:
+  schema: public
+  name: user_tracking
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - lat
+        - lng
+        - user_id
+      filter:
+        id:
+          _eq: X-Hasura-User-Id

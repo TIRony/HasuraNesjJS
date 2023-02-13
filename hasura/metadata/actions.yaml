@@ -1,0 +1,28 @@
+actions:
+  - name: findUsers
+    definition:
+      kind: ""
+      handler: http://server:3000/findUsers
+    permissions:
+      - role: user
+  - name: login
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:3000/auth/login
+  - name: registerUser
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:3000/auth/register
+    permissions:
+      - role: user
+      - role: guest
+custom_types:
+  enums: []
+  input_objects:
+    - name: SearchInput
+    - name: LoginUserArgs
+    - name: SignupInput
+  objects:
+    - name: SearchOutput
+    - name: LoginOrRegisterUserOutput
+  scalars: []

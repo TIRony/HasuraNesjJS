@@ -1,0 +1,46 @@
+type Query {
+  findUsers(
+    arg: SearchInput!
+  ): [SearchOutput]
+}
+
+type Query {
+  login(
+    params: LoginUserArgs
+  ): LoginOrRegisterUserOutput
+}
+
+type Query {
+  registerUser(
+    params: SignupInput
+  ): LoginOrRegisterUserOutput
+}
+
+input SearchInput {
+  radius: Float!
+}
+
+input LoginUserArgs {
+  email: String!
+  password: String!
+}
+
+input SignupInput {
+  email: String!
+  password: String!
+  firstName: String!
+  lastName: String!
+}
+
+type SearchOutput {
+  firstName: String!
+  lastName: String!
+  gender: String!
+  lat: Float!
+  lng: Float!
+}
+
+type LoginOrRegisterUserOutput {
+  token: String
+}
+
